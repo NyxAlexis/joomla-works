@@ -1,4 +1,16 @@
 <?php
+/**
+ * MysqliDb Class
+ *
+ * @category  Joomla php class
+ * @package   Joomla work
+ * @author    Chifor TADIFO Alexis <alexis.tadifo@nyx-e.com>
+ * @copyright Copyright (c) 2015
+ * @license   http://opensource.org/licenses/gpl-3.0.html GNU Public License
+ * @link      https://github.com/NyxAlexis/joomla-works/edit/master/configuration.php 
+ * @version   1.0-master
+ */
+
 class JConfig {
 	public $offline = '0';
 	public $offline_message = 'Ce site est en maintenance.<br /> Merci de revenir ultérieurement.';
