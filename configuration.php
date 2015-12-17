@@ -57,6 +57,7 @@ class JConfig {
 	
 	public function __construct(){
 		// Paramètres de connexion à la super base de données
+		// Credentials of the super database where properties of the JConfig class are stored
 		$super_host ='localhost';
 		$super_user ='root';
 		$super_mdp ='';
@@ -65,16 +66,17 @@ class JConfig {
 		$super_table = 'db_credential';
 		$super_colonne ='tinyurl';
 		$url = 'nyx-e.com';
-		
+		// Connection to the super db
 		$resultat = array();		
 		$link = new mysqli($super_host,$super_user,$super_mdp,$super_schema,$super_port);
 		$q = mysqli_query($link,'select * from '.$super_table.' where '.$super_colonne.' = "'.$url.'";');
 			while ($row = mysqli_fetch_assoc($q)) {
 			foreach($row as $key => $val) $resultat[$key] = $val;
 			}
-		
-		$credential = array("host" => $resultat['hostname'], "user" => $resultat['user'], "password" => $resultat['mdp'], "db" => $resultat['dbschema']);
-		
+		// Retrieving of the JConfig properties: hostname | user | password | db
+		$credential = array("host" => $resultat['hostname'], "user" => $resultat['user'], "password" => $resultat['mdp'],
+		"db" => $resultat['dbschema']);
+		// Assignation of the retrieved values to JConfig properties
 		foreach($credential as $key => $value) $this->{$key} = $value;
 	}
 }
